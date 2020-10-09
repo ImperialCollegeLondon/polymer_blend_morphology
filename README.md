@@ -38,7 +38,7 @@ The script `convae.py` contains two examples of convolutional autoencoder archit
 
 The script outputs a .csv file which contains the encoded data. At this point, one could perform further dimensionality reduction using the scripts above (with some modifications to work with CSV files) or perform clustering on the encoded data directly. 
 
-## Perform Gaussian process classification
-
+## Performing Gaussian process classification for prediction
+The script `gpc.py` can be used to run Gausian process classification for generating the regime maps as shown in figure 10 of the manuscript. A helper function in the script `extract_slices.py` is necessary to extract the appropriate slice of the full dataset for performing prediction. Additional detail regarding the types of slices that can be generated can be found in the comments of `extract_slices.py`. Currently, it is configured to run using the `Clustering_Results.csv` file in the repo as the dataset which contains the results clustering results from the various clustering techniques. We found manual clustering to be the most effective. 
 
 
