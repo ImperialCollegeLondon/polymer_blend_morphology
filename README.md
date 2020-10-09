@@ -1,5 +1,5 @@
 # polymer_blend_morphology
-Applying ML to study simulated polymer blend morphology
+Applying ML to study simulated ternary polymer blend morphology using a modified Cahn-Hilliard framework. The preprint of the accepted paper can be found here: https://arxiv.org/abs/2007.07276. 
 
 This resposity contains sample code to do the following: 1) Perform the Cahn-Hilliard simulations using Fenics 2019 with a Singularity container from Ocellaris. 2) Perform the various dimensionality reduction and clustering techniques on the dataset and 3) Run the Gaussian process classifier to generate the morphology maps. 
 
@@ -28,5 +28,10 @@ The dataset also contains the extracted Red, Green, Blue (RGB) channels of the o
 
 ## Performing PCA & K-Means clustering
 
+The next two sections will require scikit-learn and Tensorflow (using Keras). A YAML environment file, `image.yml`, of the Anaconda environment used is provided for the interested user. 
 
+The first file is `elbow.py` which can be used to estimate the optimal number of clusters for a given number of PCs retained using K-Means clustering. The code in `elbow.py` can be modified to generate the elbow curve plots for multiple conditions so that the user can identify the optimal number of clusters for a range of parameters e.g. the number of PCs retained. 
 
+The second file is `pca-kmeans.py` which is used to generate 2/3D scatter plot of the clusters given a specification of the optimal number of clusters determined by the elbow method. There is a certain amount of variability associated with the identification of the number of clusters as there is no distinct "Elbow perse" in many of the plots. This result is evidenced in Figure 4 of the manuscript. 
+
+These two scripts can be easily modified to implement other dimensionality reduction techniques within scikit-learn (). However, the choice of a clustering algorithm requires careful thought as outlined in the manuscript. A good reference on the various clustering algorithms can be found here :https://scikit-learn.org/stable/auto_examples/cluster/plot_cluster_comparison.html#sphx-glr-auto-examples-cluster-plot-cluster-comparison-py. 
